@@ -8,8 +8,8 @@ The following information should be everything you need to complete the project.
 
 The application must:
 
-- Be deployed to a **Virtual Machine for testing**
-- Be deployed in a **managed Kubernetes Cluster for production**
+- Be tested 
+- Be deployed to a **Virtual Machine**
 - Make use of a **managed Database solution**
 
 ## Application
@@ -38,7 +38,7 @@ mysql+pymysql://[db-user]:[db-password]@[db-host]/[db-name]
 An example of this would be:
 
 ```
-mysql+pymysql://root:password@mysql:3306/orders
+mysql+pymysql://root:password@mysql.123456.rds.amazonaws.com:3306/orders
 ```
 
 ### Environment Variables
@@ -52,10 +52,10 @@ The application makes use of **2 environment variables**:
 
 Typically, to run a Flask application, you would:
 
-1. Install the pip dependencies:
+1. Install the pip dependencies from a `requirements.txt`, these can be found in the `backend` and `frontend` directories:
 
 ```
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 2. Run the application:
@@ -70,36 +70,23 @@ python3 app.py
 
 Unit Tests have been included for both the frontend and backend services.
 
-To test the backend service, you will need two things:
-
-1. A database called `testdb`
-2. A `TEST_DATABASE_URI` environment variable, which contains the database connection for the `testdb` database.
 
 You can run the tests using the command:
 
 ```
-pytest
+python3 -m pytest
 ```
 
 To generate a coverage report, you will need to run:
 
 ```
-pytest --cov application
+python3 -m pytest --cov application
 ```
 
 ## Infrastructure
 
 The **Minimum Viable Product** for this project should at least demonstrate the following infrastructure diagram:
 
-![mvp-diagram](https://i.imgur.com/i5qfOas.png)
-
-**Stretch goals** for this project include:
-
-- Using **Terraform to configure the Kubernetes Cluster** for production 
-- Using **Terraform and Ansible to configure the Test VM**
-
-Completing the stretch goals should yield an infrastructure diagram similar to the following:
-
-![stretch-digram](https://i.imgur.com/Q5zljVl.png)
+![mvp-diagram](https://i.gyazo.com/f5cd176c4f440af639b7dc3c098535c7.png)
 
 **Good luck!**
