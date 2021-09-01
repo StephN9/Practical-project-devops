@@ -7,7 +7,7 @@ services:
     - target: 5000
       published: 5000
       protocol: tcp
-  backend-app:
+  backend:
     image: stephnorman/backend-image:latest
     build: ./backend
     ports:
@@ -22,5 +22,5 @@ services:
       protocol: tcp
     volumes:
     - type: bind
-      source: ./nginx.conf
+      source: ./nginx/nginx.conf
       target: /etc/nginx/nginx.conf
